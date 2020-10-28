@@ -1,4 +1,4 @@
-package org.insset.client.calculator;
+package org.insset.client.calculator.roman;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -26,7 +26,7 @@ import org.insset.shared.FieldVerifier;
  *
  * @author talend
  */
-public class CalculatorDecimalPresenter extends Composite {
+public class CalculatorRomainPresenter extends Composite {
 
     @UiField
     public ResetButton boutonClearR;
@@ -53,7 +53,7 @@ public class CalculatorDecimalPresenter extends Composite {
     @UiField
     public Label errorLabelD;
 
-    interface MainUiBinder extends UiBinder<HTMLPanel, CalculatorDecimalPresenter> {
+    interface MainUiBinder extends UiBinder<HTMLPanel, CalculatorRomainPresenter> {
     }
 
     private static MainUiBinder ourUiBinder = GWT.create(MainUiBinder.class);
@@ -66,7 +66,7 @@ public class CalculatorDecimalPresenter extends Composite {
     /**
      * Constructeur
      */
-    public CalculatorDecimalPresenter() {
+    public CalculatorRomainPresenter() {
         initWidget(ourUiBinder.createAndBindUi(this));
         initHandler();
     }

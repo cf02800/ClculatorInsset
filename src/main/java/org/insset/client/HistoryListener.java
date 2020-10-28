@@ -9,7 +9,7 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.RootPanel;
 import org.insset.client.exemple.ExemplePresenter;
-import org.insset.client.calculator.CalculatorDecimalPresenter;
+import org.insset.client.calculator.roman.CalculatorRomainPresenter;
 
 /**
  *
@@ -23,7 +23,7 @@ public class HistoryListener implements ValueChangeHandler<String> {
         //Accès a la page de conversion roman
         if (event.getValue().equals("roman")) {
             RootPanel.get().clear();
-            RootPanel.get().add(new CalculatorDecimalPresenter());
+            RootPanel.get().add(new CalculatorRomainPresenter());
         }
 
         //Accès a la page d'exemple
