@@ -65,7 +65,20 @@ public class RemiseTest {
         float expResult = 48;
         float result = instance.CalculPrixFinal(prixInitial, taux);
         Assert.assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of calculPrixInitial method, of class Remise.
+     */
+    @Test
+    public void testCalculPrixInitial() {
         
+        float prixFinal = 48;
+        int taux = 20;
+        Remise instance = new Remise();
+        float expResult = 60;
+        float result = instance.calculPrixInitial(prixFinal, taux);
+        Assert.assertEquals(expResult, result, 0.0);
     }
     
 }

@@ -6,7 +6,6 @@
 package org.insset.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
-import java.util.ArrayList;
 
 /**
  *
@@ -22,5 +21,10 @@ public class Remise extends RemoteServiceServlet {
     public float CalculPrixFinal(float prixInitial, int taux) {
         float remise = this.CalculRemise(prixInitial, taux);
         return prixInitial - remise;
+    }
+    
+    public float calculPrixInitial(float prixFinal, int taux) {
+        float remise = (prixFinal * taux) / (100 - taux);
+        return prixFinal + remise;
     }
 }
