@@ -8,6 +8,7 @@ package org.insset.server;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -47,10 +48,24 @@ public class RemiseTest {
         float prixInitial = 60;
         int taux = 20;
         Remise instance = new Remise();
-        ArrayList expResult = new ArrayList();
-        expResult.add(48, 12);
-        ArrayList result = instance.CalculRemise(prixInitial, taux);
-        assertEquals(expResult, result);
+        float expResult = 12;
+        float result = instance.CalculRemise(prixInitial, taux);
+        Assert.assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of CalculPrixFinal method, of class Remise.
+     */
+    @Test
+    public void testCalculPrixFinal() {
+        
+        float prixInitial = 60;
+        int taux = 20;
+        Remise instance = new Remise();
+        float expResult = 48;
+        float result = instance.CalculPrixFinal(prixInitial, taux);
+        Assert.assertEquals(expResult, result, 0.0);
+        
     }
     
 }
