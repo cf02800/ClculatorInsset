@@ -1,5 +1,6 @@
 package org.insset.shared;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,6 +58,13 @@ public class FieldVerifier {
      * @param name the name to validate
      * @return true if valid, false if invalid
      */
+    public static boolean isValidPrix(Float prix) {
+        return prix instanceof Float;
+    }
+    
+    public static boolean isValidTaux(Integer nbr) {
+        return !((nbr > 100 || nbr < 0) || nbr instanceof Integer);
+    }
     public static boolean isValidDecimal(Integer nbr) {
         //Implement your code
         return true;
