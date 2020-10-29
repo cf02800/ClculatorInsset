@@ -1,5 +1,11 @@
 package org.insset.shared;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -57,12 +63,28 @@ public class FieldVerifier {
     }
 
     public static boolean isValidRoman(String nbr) {
-        //Implement your code
-        return true;
+        Pattern p = Pattern.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
+        Matcher m = p.matcher(nbr);
+        Boolean bool = m.matches();
+        return bool;
     }
 
     public static boolean isValidDate(String date) {
-        //Implement your code
+        if(date == null){
+            return false;
+	}
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	sdf.setLenient(false);
+        try {
+            //if not valid, it will throw ParseException
+            Date dateAVerifier = sdf.parse(date);
+            System.out.println(dateAVerifier);
+
+	} catch (ParseException e) {
+
+			return false;
+		}
         return true;
     }
+    
 }
