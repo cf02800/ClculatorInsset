@@ -65,9 +65,9 @@ public class FieldVerifier {
     public static boolean isValidTaux(Integer nbr) {
         return !((nbr > 100 || nbr < 0) || nbr instanceof Integer);
     }
+    
     public static boolean isValidDecimal(Integer nbr) {
-        //Implement your code
-        return true;
+        return nbr instanceof Integer;
     }
 
     public static boolean isValidRoman(String nbr) {
