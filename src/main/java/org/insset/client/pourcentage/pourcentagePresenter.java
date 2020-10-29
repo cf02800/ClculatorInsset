@@ -22,13 +22,15 @@ import org.insset.client.message.Messages;
 import org.insset.client.message.dialogbox.DialogBoxInssetPresenter;
 import org.insset.client.service.ExempleService;
 import org.insset.client.service.ExempleServiceAsync;
+import org.insset.client.service.PourcentageService;
+import org.insset.client.service.PourcentageServiceAsync;
 import org.insset.shared.FieldVerifier;
 
 /**
  *
  * @author insset
  */
-public class pourcentagePresenter {
+public class pourcentagePresenter extends Composite{
     
 
     @UiField
@@ -54,9 +56,7 @@ public class pourcentagePresenter {
      * Create a remote service proxy to talk to the server-side Greeting
      * service.
      */
-    private final ExempleServiceAsync service = GWT.create(ExempleService.class);
-
-    private final Messages messages = GWT.create(Messages.class);
+    private final PourcentageServiceAsync service = GWT.create(PourcentageService.class);
 
     interface AddUiBinder extends UiBinder<HTMLPanel, pourcentagePresenter> {
     }
@@ -69,8 +69,7 @@ public class pourcentagePresenter {
     /**
      * Constructeur
      */
-    public pourcentagePresenter() {
-        //bind de la page
+     public pourcentagePresenter() {
         initWidget(ourUiBinder.createAndBindUi(this));
         initHandler();
     }
@@ -96,22 +95,37 @@ public class pourcentagePresenter {
         });
     }
 
-    private void CalculPrixFinal() {
-        errorLabel.setText("");
-        final String textToServer = nom.getText();
-        if (!FieldVerifier.isValidName(textToServer)) {
+    private void CalculPrixFinal()  {
+        Float valuePrix = null;
+        Integer valueTaux = null;
+        try {
+            valuePrix = Float.parseFloat(valPrix.getText());
+            valueTaux = Integer.parseInt(valTaux.getText());
+            
+        } catch (NumberFormatException e) {
             errorLabel.addStyleName("serverResponseLabelError");
-            errorLabel.setText("Aucun texte entré!!");
+            errorLabel.setText("Format incorect");
             return;
         }
-        service.inverserChaine(textToServer, new AsyncCallback<String>() {
+        if ((!FieldVerifier.isValidDecimal(valueTaux))) {
+            errorLabel.addStyleName("serverResponseLabelError");
+            errorLabel.setText("Format incorect");
+            return;
+        }
+        service.CalculPrixFinal(Float.parseFloat(valPrix.getText()), Integer.parseInt(valTaux.getText()), new AsyncCallback<Float>() {
+            @Override
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
-                Window.alert(SERVER_ERROR);
             }
 
             public void onSuccess(String result) {
-                new DialogBoxInssetPresenter("Votre nom inversé :", textToServer, result);
+                errorLabel.setText(" ");
+                new DialogBoxInssetPresenter("Calcul du prix final", valPrix.getText(),valTaux.getText(), result);
+            }
+
+            @Override
+            public void onSuccess(Float result) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
     }
