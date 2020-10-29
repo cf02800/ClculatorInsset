@@ -38,10 +38,10 @@ public class RomanConverterServiceImplTest {
     }
 
     /**
-     * Test of convertRomanToArabe method, of class RomanConverterServiceImpl.
+     * Test of convertArabeToRoman method, of class RomanConverterServiceImpl.
      */
     @Test
-    public void testConvertRomanToArabeOK() {
+    public void testConvertArabeToRomanOK() {
         //given
         int n = 1337;
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
@@ -54,16 +54,80 @@ public class RomanConverterServiceImplTest {
     }
     
     /**
-     * Test of convertRomanToArabe method, of class RomanConverterServiceImpl.
+     * Test of convertArabeToRoman method, of class RomanConverterServiceImpl.
      */
     @Test
-    public void testConvertRomanToArabeNOK() {
+    public void testConvertArabeToRomanNOK() {
         //given
         int n = 523;
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         String expResult = "DXXII";
         //when
         String result = instance.convertArabeToRoman(n);
+
+        //then
+        Assert.assertNotSame(result, expResult);
+    }
+    
+    /**
+     * Test of convertRomanToArabe method, of class RomanConverterServiceImpl.
+     */
+    @Test
+    public void testConvertRomanToArabeOK() {
+        //given
+        String n = "MMMMCMXCIX";
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        Integer expResult = 4999;
+        //when
+        Integer result = instance.convertRomanToArabe(n);
+
+        //then
+        Assert.assertEquals(result, expResult);
+    }
+    /**
+     * Test of convertRomanToArabe method, of class RomanConverterServiceImpl.
+     */
+    @Test
+    public void testConvertRomanToArabeNOK() {
+        //given
+        String n = "CMXIV";
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        Integer expResult = 913;
+        //when
+        Integer result = instance.convertRomanToArabe(n);
+
+        //then
+        Assert.assertNotEquals(result, expResult);
+    }
+    
+    
+    /**
+     * Test of convertDateYears method, of class RomanConverterServiceImpl.
+     */
+    @Test
+    public void testConvertDateYearsOK() {
+        //given
+        String date = "19/10/2000";
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        String expResult = "XIX/X/MM";
+        //when
+        String result = instance.convertDateYears(date);
+
+        //then
+        Assert.assertEquals(result, expResult);
+    }
+    
+    /**
+     * Test of convertDateYears method, of class RomanConverterServiceImpl.
+     */
+    @Test
+    public void testConvertDateYearsNOK() {
+        //given
+        String date = "29/10/2020";
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        String expResult = "XXIX/X/MMX";
+        //when
+        String result = instance.convertDateYears(date);
 
         //then
         Assert.assertNotSame(result, expResult);
