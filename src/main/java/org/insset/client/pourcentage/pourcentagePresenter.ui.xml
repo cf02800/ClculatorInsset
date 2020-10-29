@@ -1,4 +1,4 @@
-<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+<!--<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
          xmlns:g='urn:import:com.google.gwt.user.client.ui'
         xmlns:menu="urn:import:org.insset.client.menu">
 
@@ -27,4 +27,4 @@
         </g:FlowPanel>
     </div>
   </g:HTMLPanel>
-</ui:UiBinder>
+</ui:UiBinder>-->

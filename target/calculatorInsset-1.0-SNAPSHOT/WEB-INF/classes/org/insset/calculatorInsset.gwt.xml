@@ -9,9 +9,9 @@
   <inherits name='com.google.gwt.user.theme.standard.Standard' />
   <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
   <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
-
+  
   <!-- Other module inherits                                      -->
-
+  <inherits name='org.insset.calculatorInsset'/>
   <!-- Specify the app entry point class.                         -->
   <entry-point class='org.insset.client.calculatorInsset' />
 

@@ -28,7 +28,7 @@
   </servlet-mapping>
   
   <!-- Add your servlet -->
-  <servlet>
+<!--  <servlet>
       <servlet-name>pourcentage</servlet-name>
       <servlet-class>org.insset.server.Remise</servlet-class>
   </servlet>
@@ -36,7 +36,7 @@
   <servlet-mapping>
       <servlet-name>pourcentage</servlet-name>
       <url-pattern>/calculatorInsset/pourcentage</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>calculatorInsset.html</welcome-file>

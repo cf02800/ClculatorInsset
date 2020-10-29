@@ -1,5 +1,6 @@
 package org.insset.shared;
 
+
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -55,6 +56,7 @@ public class FieldVerifier {
      * ensure that usernames, passwords, email addresses, URLs, and other fields
      * have the proper syntax.
      *
+     * @param prix
      * @param name the name to validate
      * @return true if valid, false if invalid
      */
@@ -71,27 +73,27 @@ public class FieldVerifier {
     }
 
     public static boolean isValidRoman(String nbr) {
-        Pattern p = Pattern.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
-        Matcher m = p.matcher(nbr);
-        Boolean bool = m.matches();
-        return bool;
+//        Pattern p = Pattern.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
+//        Matcher m = p.matcher(nbr);
+//        Boolean bool = m.matches();
+     return true;
     }
 
     public static boolean isValidDate(String date) {
-        if(date == null){
-            return false;
-	}
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-	sdf.setLenient(false);
-        try {
-            //if not valid, it will throw ParseException
-            Date dateAVerifier = sdf.parse(date);
-            System.out.println(dateAVerifier);
-
-	} catch (ParseException e) {
-
-			return false;
-		}
+//        if(date == null){
+//            return false;
+//	}
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//	sdf.setLenient(false);
+//        try {
+////            if not valid, it will throw ParseException
+//            Date dateAVerifier = sdf.parse(date);
+//            System.out.println(dateAVerifier);
+//
+//	} catch (ParseException e) {
+//
+//			return false;
+//		}
         return true;
     }
     

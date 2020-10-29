@@ -111,6 +111,7 @@
           <runTarget>calculatorInsset.html</runTarget>
           <modules>
             <module>org.insset.calculatorInsset</module>
+            
           </modules>
         </configuration>
       </plugin>
