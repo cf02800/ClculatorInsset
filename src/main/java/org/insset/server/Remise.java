@@ -15,12 +15,12 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class Remise extends RemoteServiceServlet {
     
-    public ArrayList CalculRemise(float prixInitial, int taux) {
-        float remise = (prixInitial * taux) / 100;
-        float prixFinal = prixInitial - remise;
-        ArrayList lst = new ArrayList();
-        lst.add(prixFinal);
-        lst.add(remise);
-        return lst;
+    public float CalculRemise(float prixInitial, int taux) {
+        return (prixInitial * taux) / 100;
+    }
+    
+    public float CalculPrixFinal(float prixInitial, int taux) {
+        float remise = this.CalculRemise(prixInitial, taux);
+        return prixInitial - remise;
     }
 }
