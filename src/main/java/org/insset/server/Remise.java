@@ -7,7 +7,6 @@ package org.insset.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import java.util.ArrayList;
-import org.insset.client.service.RomanConverterService;
 
 /**
  *
